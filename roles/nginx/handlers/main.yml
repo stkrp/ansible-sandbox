@@ -1,0 +1,18 @@
+---
+- name: enable nginx
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+  service: name=nginx enabled=yes
+  # command: "systemctl enable nginx.service"
+
+- name: restart nginx
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+  service: name=nginx state=restarted enabled=yes
+
+- name: reload firewall
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+  service: name=firewalld state=reloaded enabled=yes
+  # command: "firewall-cmd --reload"
+...

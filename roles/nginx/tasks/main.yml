@@ -1,0 +1,26 @@
+---
+- name: Disable selinux
+  selinux: state=disabled
+  # command: "vi /etc/selinux/config - edit: SELINUX=disabled"
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+
+- name: Install nginx package
+  yum: 
+    name: nginx
+    state: present
+    update_cache: yes
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+  notify: enable nginx
+
+# - name: Add `http` and `https` to firewall's public zone
+#   # firewalld: "service={{ item }} permanent=true state=enabled zone=public"
+#   command: "firewall-cmd --permanent --zone=public --add-service={{ item }}"
+#   become: true
+#   become_pass: "{{ ansible_ssh_pass }}"
+#   with_items:
+#     - "http"
+#     - "https"
+#   notify: reload firewall
+...

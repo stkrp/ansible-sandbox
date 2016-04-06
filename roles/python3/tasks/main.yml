@@ -1,0 +1,17 @@
+---
+- name: Install Python 3 package and requirements
+  yum: 
+    name: "{{ item }}"
+    state: present
+    update_cache: yes
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+  with_items:
+   - "@Development tools"
+   - epel-release
+   - python34
+   - python34-devel
+   - libjpeg-devel
+   - libffi-devel
+   - libselinux-python
+...

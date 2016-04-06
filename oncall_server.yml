@@ -1,0 +1,9 @@
+---
+- name: Install Python3, pip3, nginx, uWSGI, MariaDB, Redis
+  hosts: webservers
+
+  roles:
+    # - python3
+    # - pip3
+    - nginx
+...

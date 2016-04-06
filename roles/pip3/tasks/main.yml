@@ -1,0 +1,14 @@
+---
+- name: Get pip3 installer
+  get_url: 
+    url: "{{ installer_url }}"
+    dest: "{{ installer_filepath }}"
+  
+- name: Install pip3
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+  command: "python3.4 {{ installer_filepath }}"
+
+- name: Remove pip3 installer
+  command: "rm {{ installer_filepath }}"
+...

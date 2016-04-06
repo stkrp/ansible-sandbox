@@ -1,0 +1,6 @@
+---
+installer_filename: get-pip.py
+
+installer_url: "https://bootstrap.pypa.io/{{ installer_filename }}"
+installer_filepath: "/tmp/{{ installer_filename }}"
+...
