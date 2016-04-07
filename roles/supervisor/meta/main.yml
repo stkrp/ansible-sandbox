@@ -1,0 +1,4 @@
+---
+dependencies:
+  - { role: easy_install_27 }
+...

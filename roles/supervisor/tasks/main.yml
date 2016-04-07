@@ -1,0 +1,13 @@
+---
+- name: Install supervisor
+  easy_install:
+    executable: easy_install-2.7
+    name: supervisor
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+
+- name: Create supervisor's log directory
+  command: mkdir {{ supervisor_log_dir }}
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+...
