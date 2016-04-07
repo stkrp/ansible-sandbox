@@ -1,0 +1,9 @@
+---
+- name: Install Git package
+  yum: 
+    name: git
+    state: present
+    update_cache: yes
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+...
