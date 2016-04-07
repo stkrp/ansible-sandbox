@@ -10,5 +10,5 @@
   become_pass: "{{ ansible_ssh_pass }}"
 
 - name: Remove easy_install-2.7 installer
-  command: "rm {{ installer_filepath }}"
+  command: "rm {{ installer_filepath }} -f"
 ...

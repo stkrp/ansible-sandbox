@@ -1,0 +1,38 @@
+---
+- name: Make django project directory
+  command: "mkdir {{ dp_dirpath }} -p"
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+
+- name: Pull django project
+  git:
+    repo: "{{ dp_git_repo }}"
+    version: "{{ dp_git_branch }}"
+    dest: "{{ dp_dirpath }}"
+    force: yes
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+
+- name: Install django project requirements
+  pip:
+    executable: pip3.4
+    requirements: "{{ dp_dirpath }}{{ dp_requirements_filename }}"
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+
+- name: Run django project migrations
+  command: "python3.4 {{ dp_dirpath }}{{ dp_manage_filename }} migrate"
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+
+- name: Collect django project static files
+  command: "python3.4 {{ dp_dirpath }}{{ dp_manage_filename }} collectstatic"
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+
+- name: Update uWSGI config
+  command: "touch {{ uwsgi_config_dirpath }}{{ dp_uwsgi_config_filename }}"
+  become: true
+  become_pass: "{{ ansible_ssh_pass }}"
+  notify: restart supervisor
+...

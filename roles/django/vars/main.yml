@@ -1,0 +1,12 @@
+---
+# dp <=> django project
+dp_git_user: "login"
+dp_git_pass: "password"
+dp_git_repo: "https://{{ dp_git_user }}:{{ dp_git_pass }}@github.com/stkrp/ansible-sandbox.git"
+
+dp_uwsgi_config_filename: "oncall.ini"
+
+dp_requirements_filename: python_requirements
+dp_apps_dirname: oncall
+dp_manage_filename: "{{ dp_apps_dirname }}/manage.py"
+...

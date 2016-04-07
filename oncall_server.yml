@@ -1,9 +1,17 @@
 ---
-- name: Install Python3, pip3, nginx, uWSGI, MariaDB, Redis
+# - name: Install Git, Python3, pip3, nginx, uWSGI, MariaDB, Redis, supervisor
+#   hosts: webservers
+#
+#   roles:
+#     - python3
+#     - pip3
+#     - nginx
+#     - supervisor
+#     - git
+
+- name: Install django project
   hosts: webservers
 
   roles:
-    # - python3
-    # - pip3
-    - nginx
+    - django
 ...

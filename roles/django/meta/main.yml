@@ -1,0 +1,8 @@
+---
+# dependencies:
+  # - { role: git }
+  # - { role: python3 }
+  # - { role: pip3 }
+  # - { role: uwsgi }
+  # - { role: supervisor }
+...

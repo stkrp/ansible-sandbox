@@ -7,7 +7,7 @@
   become_pass: "{{ ansible_ssh_pass }}"
 
 - name: Create supervisor's log directory
-  command: mkdir {{ supervisor_log_dir }}
+  command: "mkdir {{ supervisor_log_dir }} -p"
   become: true
   become_pass: "{{ ansible_ssh_pass }}"
 ...

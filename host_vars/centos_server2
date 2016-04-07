@@ -1,0 +1,3 @@
+dp_dirpath: "/path/to/django/project/dir/with/append/slash/"
+dp_git_branch: "branch-name"
+uwsgi_config_dirpath: "/etc/uwsgi/vassals/"

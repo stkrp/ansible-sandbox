@@ -10,5 +10,5 @@
   command: "python3.4 {{ installer_filepath }}"
 
 - name: Remove pip3 installer
-  command: "rm {{ installer_filepath }}"
+  command: "rm {{ installer_filepath }} -f"
 ...
